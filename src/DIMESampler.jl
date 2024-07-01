@@ -136,7 +136,7 @@ function RunDIME(lprobFunc::Function, init::Array, niter::Int; sigma::Float64=1e
         end
 
         # store
-        chains[i,:,:] = transpose(x)
+        chains[i,:,:] = transpose(xcur)
         lprobs[i,:] = lprob
 
         if progress
