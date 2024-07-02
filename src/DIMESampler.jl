@@ -131,12 +131,12 @@ function RunDIME(lprobFunc::Function, init::Array, niter::Int; sigma::Float64=1e
             accepted = lnpdiff .> log.(rand(Uniform(0,1), cursize))
             naccepted += sum(accepted)
             # update chains
-            xcur[:,accepted] = q[:,accepted]
+            x[:,accepted] = q[:,accepted]
             lprobcur[accepted] = newlprob[accepted]
         end
 
         # store
-        chains[i,:,:] = transpose(xcur)
+        chains[i,:,:] = transpose(x)
         lprobs[i,:] = lprob
 
         if progress
